@@ -1,10 +1,10 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('./database/mongoose');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var APIRouter = require('./routes/data');
 
 var app = express();
 
@@ -14,7 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/v1/api', APIRouter);
 
+// const port = 3000;
+// app.listen(port, () => {
+//     // eslint-disable-next-line
+//     console.log(`Server running on port ${port}`);
+// });
 module.exports = app;
