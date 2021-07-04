@@ -42,7 +42,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 //     dataType = "json"
 // );
 
-$.get("http://localhost:3000/v1/api/fploc", function(data, status) {
+$.get("/v1/api/fploc", function(data, status) {
         L.geoJSON(data, {
                 style: function(feature) {
                     return {
@@ -59,7 +59,7 @@ $.get("http://localhost:3000/v1/api/fploc", function(data, status) {
     dataType = "json"
 );
 
-$.get("http://localhost:3000/v1/api/aoi", function(data, status) {
+$.get("/v1/api/aoi", function(data, status) {
         L.geoJSON(data, {
                 style: function(feature) {
                     return {
@@ -76,7 +76,7 @@ $.get("http://localhost:3000/v1/api/aoi", function(data, status) {
     dataType = "json"
 );
 
-$.get("http://localhost:3000/v1/api/camploc", function(data, status) {
+$.get("/v1/api/camploc", function(data, status) {
         data.forEach(element => {
             circle = new L.circle([element.Latitude, element.Longitude], {
                     stroke: false,
