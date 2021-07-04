@@ -75,12 +75,12 @@ $.get("/v1/api/aoi", function(data, status) {
     },
     dataType = "json"
 );
-
+// #582767, #272C8C
 $.get("/v1/api/camploc", function(data, status) {
         data.forEach(element => {
             circle = new L.circle([element.Latitude, element.Longitude], {
                     stroke: false,
-                    fillColor: '#272C8C',
+                    fillColor: '#582767',
                     fillOpacity: 0.7,
                     radius: parseInt(element.Total_HH) / 100
                 }, { pane: 'circles' })
